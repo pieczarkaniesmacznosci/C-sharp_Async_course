@@ -73,7 +73,7 @@ namespace WPFUserInterface
             List<Task<WebsiteDataModel>> tasks = new List<Task<WebsiteDataModel>>();
             foreach (string site in websites)
             {
-                tasks.Add(Task.Run(() => DownloadWebsite(site)));
+                tasks.Add(DownloadWebsiteAsync(site));
             }
 
             var results = await Task.WhenAll(tasks);
